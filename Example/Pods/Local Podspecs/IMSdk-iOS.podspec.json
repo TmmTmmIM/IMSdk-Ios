@@ -1,0 +1,22 @@
+{
+  "name": "IMSdk-iOS",
+  "version": "0.1.0",
+  "summary": "A short description of IMSdk-iOS.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/oceanLi/IMSdk-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "oceanLi": "Li437277219@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/oceanLi/IMSdk-iOS.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "IMSdk-iOS/Classes/**/*"
+}
