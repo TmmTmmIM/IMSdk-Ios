@@ -1,42 +1,49 @@
 #
-# Be sure to run `pod lib lint IMSdk-iOS.podspec' to ensure this is a
-# valid spec before submitting.
+#  Be sure to run `pod spec lint lklPaySdk.podspec' to ensure this is a
+#  valid spec and to remove all comments including this before submitting the spec.
 #
-# Any lines starting with a # are optional, but their use is encouraged
-# To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
+#  To learn more about Podspec attributes see https://guides.cocoapods.org/syntax/podspec.html
+#  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
 #
 
-Pod::Spec.new do |s|
-  s.name             = 'IMSdk-iOS'
-  s.version          = '0.0.1'
-  s.summary          = 'A short description of IMSdk-iOS.'
+Pod::Spec.new do |spec|
 
-# This description is used to generate tags and improve search results.
-#   * Think: What does it do? Why did you write it? What is the focus?
-#   * Try to keep it short, snappy and to the point.
-#   * Write the description between the DESC delimiters below.
-#   * Finally, don't worry about the indent, CocoaPods strips it!
+  # ―――  Spec Metadata  ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  These will help people to find your library, and whilst it
+  #  can feel like a chore to fill in it's definitely to your advantage. The
+  #  summary should be tweet-length, and the description more in depth.
+  #
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
-
-  s.homepage         = 'https://github.com/TmmTmmIM/IMSdk-iOS'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Houzi' => 'admin@tmmtmm.com.tr' }
-  s.source           = { :git => 'https://github.com/TmmTmmIM/IMSdk-iOS.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-
-  s.ios.deployment_target = '10.0'
-
-  s.source_files = 'IMSdk-iOS/Classes/**/*'
+  spec.name         = "HYBUAdADK"
+  spec.version      = "0.0.1"
+  spec.summary      = "IMSdk-iOS"
+  spec.description  = <<-DESC
   
-  # s.resource_bundles = {
-  #   'IMSdk-iOS' => ['IMSdk-iOS/Assets/*.png']
-  # }
+                   DESC
+  spec.homepage     = "https://github.com/TmmTmmIM/IMSdk-iOS"
+  spec.license      = "MIT"
+  spec.author             = { "tmmtmm" => "admin@tmmtmm.com.tr" }
+  spec.platform     = :ios, "10.0"
+  spec.ios.deployment_target = "10.0"
+  spec.source       = { :git => "https://github.com/TmmTmmIM/IMSdk-iOS.git", :tag => spec.version}
+  spec.source_files  = "IMSdk-iOS/HYBUAdADK.framework/Headers/*.{h,m}"
+  spec.frameworks = "CFNetwork", "SystemConfiguration"
+  spec.library   = "z"
+  spec.vendored_frameworks = 'IMSdk-iOS/HYBUAdADK.framework'
+  spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
 
-  # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
-  # s.dependency 'AFNetworking', '~> 2.3'
+  spec.dependency "AFNetworking"
+  spec.dependency "YKit"
+
+  # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
+  #
+  #  If your library depends on compiler flags you can set them in the xcconfig hash
+  #  where they will only apply to your library. If you depend on other Podspecs
+  #  you can include multiple dependencies to ensure it works.
+
+  # spec.requires_arc = true
+
+  # spec.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+
 end

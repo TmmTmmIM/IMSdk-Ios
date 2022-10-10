@@ -1,0 +1,6 @@
+framework module HYBUAdADK {
+  umbrella header "HYBUAdADK.h"
+
+  export *
+  module * { export * }
+}
