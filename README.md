@@ -22,7 +22,7 @@ pod 'IMSdk-iOS'
 
 ## Author
 
-oceanLi, Li437277219@gmail.com
+tmmtmm, admin@tmmtmm.com.tr
 
 ## License
 

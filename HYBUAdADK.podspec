@@ -17,13 +17,13 @@ Pod::Spec.new do |spec|
 
   spec.name         = "HYBUAdADK"
   spec.version      = "0.0.1"
-  spec.summary      = "收银台sdk"
+  spec.summary      = "imsdk"
   spec.description  = <<-DESC
-  sdk
+  imsdk
                    DESC
   spec.homepage     = "https://github.com/TmmTmmIM/IMSdk-iOS"
   spec.license      = "MIT"
-  spec.author             = { "haoyingjie" => "405275657@qq.com" }
+  spec.author             = { "tmmtmm" => "admin@tmmtmm.com.tr" }
   spec.platform     = :ios, "10.0"
   spec.ios.deployment_target = "10.0"
   spec.source       = { :git => "https://github.com/TmmTmmIM/IMSdk-iOS.git", :tag => spec.version}
@@ -33,7 +33,12 @@ Pod::Spec.new do |spec|
   spec.vendored_frameworks = 'IMSdk-iOS/HYBUAdADK.framework'
   spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
 
-  spec.dependency "UMCommon"
+  spec.dependency "WCDB.swift", '~> 1.0.8.2'
+  spec.dependency "Alamofire", '~> 4.9.1'
+  spec.dependency "HandyJSON", '~> 5.0.2'
+  spec.dependency "RxSwiftExt", '~> 6.0.1'
+  spec.dependency "MMKV", '~> 1.2.10'
+  spec.dependency "SnapKit", '~> 4.2.0'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
