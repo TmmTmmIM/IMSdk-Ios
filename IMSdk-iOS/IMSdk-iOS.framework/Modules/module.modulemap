@@ -1,6 +1,0 @@
-framework module LKLPaymentSdk {
-  umbrella header "LKLPaymentSdk.h"
-
-  export *
-  module * { export * }
-}

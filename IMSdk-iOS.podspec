@@ -27,11 +27,11 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "10.0"
   spec.ios.deployment_target = "10.0"
   spec.source       = { :git => "https://github.com/TmmTmmIM/IMSdk-iOS.git", :tag => spec.version}
-  spec.source_files  = "IMSdk-iOS/IMSdk-iOS.framework/Headers/*.{h,m}"
-  spec.frameworks = "CFNetwork", "SystemConfiguration"
-  spec.library   = "z"
-  spec.vendored_frameworks = 'IMSdk-iOS/IMSdk-iOS.framework'
-  spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
+  # spec.source_files  = "IMSdk-iOS/IMSdk-iOS.framework/Headers/*.{h,m}"
+  # spec.frameworks = "CFNetwork", "SystemConfiguration"
+  # spec.library   = "z"
+  # spec.vendored_frameworks = 'IMSdk-iOS/IMSdk-iOS.framework'
+  # spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
