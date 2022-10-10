@@ -222,48 +222,14 @@ SWIFT_CLASS("_TtC5IMSdk5Async")
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-
-SWIFT_CLASS("_TtC5IMSdk5IMSdk")
-@interface IMSdk : NSObject
-- (nonnull instancetype)init SWIFT_UNAVAILABLE;
-+ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
-@end
-
-
-SWIFT_CLASS("_TtC5IMSdk9MMKVUtils")
-@interface MMKVUtils : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-@protocol TMChatViewDelegate;
 @class NSCoder;
 @class UITableView;
 @class NSIndexPath;
 @class UITableViewCell;
 
-SWIFT_CLASS("_TtC5IMSdk16TMChatDetailView")
-@interface TMChatDetailView : UIView <UITableViewDataSource, UITableViewDelegate>
+SWIFT_CLASS("_TtC5IMSdk8ChatView")
+@interface ChatView : UIView <UITableViewDataSource, UITableViewDelegate>
 - (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (void)setDelegateWithDelegate:(id <TMChatViewDelegate> _Nonnull)delegate;
-- (void)layoutSubviews;
-- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
-- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
-- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
-@end
-
-
-SWIFT_CLASS("_TtC5IMSdk10TMChatView")
-@interface TMChatView : UIView <UITableViewDataSource, UITableViewDelegate>
-- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
-- (void)setDelegateWithDelegate:(id <TMChatViewDelegate> _Nonnull)delegate;
 - (void)layoutSubviews;
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
 - (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
@@ -278,22 +244,54 @@ SWIFT_CLASS("_TtC5IMSdk10TMChatView")
 
 @class NSString;
 
-SWIFT_PROTOCOL("_TtP5IMSdk18TMChatViewDelegate_")
-@protocol TMChatViewDelegate <NSObject>
+SWIFT_PROTOCOL("_TtP5IMSdk20ConversationDelegate_")
+@protocol ConversationDelegate <NSObject>
 @optional
-- (void)clickChatListCellWithAChatId:(NSString * _Nonnull)aChatId;
+- (void)onItemClickWithAChatId:(NSString * _Nonnull)aChatId;
 @end
 
 
-SWIFT_PROTOCOL("_TtP5IMSdk20TMConnectionDelegate_")
-@protocol TMConnectionDelegate <NSObject>
-- (void)getAuthWithAUid:(NSString * _Nonnull)aUid resolve:(void (^ _Nonnull)(NSString * _Nonnull))resolve;
+SWIFT_CLASS("_TtC5IMSdk16ConversationView")
+@interface ConversationView : UIView <UITableViewDataSource, UITableViewDelegate>
+- (nonnull instancetype)initWithFrame:(CGRect)frame OBJC_DESIGNATED_INITIALIZER;
+- (void)setDelegateWithDelegate:(id <ConversationDelegate> _Nonnull)delegate;
+- (void)layoutSubviews;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)coder SWIFT_UNAVAILABLE;
+- (NSInteger)tableView:(UITableView * _Nonnull)tableView numberOfRowsInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UITableViewCell * _Nonnull)tableView:(UITableView * _Nonnull)tableView cellForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath SWIFT_WARN_UNUSED_RESULT;
+- (void)tableView:(UITableView * _Nonnull)tableView didSelectRowAtIndexPath:(NSIndexPath * _Nonnull)indexPath;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (CGFloat)tableView:(UITableView * _Nonnull)tableView heightForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForHeaderInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
+- (UIView * _Nullable)tableView:(UITableView * _Nonnull)tableView viewForFooterInSection:(NSInteger)section SWIFT_WARN_UNUSED_RESULT;
 @end
 
-typedef SWIFT_ENUM(NSInteger, TMEnvironmentType, closed) {
-  TMEnvironmentTypeProduction = 1,
-  TMEnvironmentTypeDevelopment = 2,
+
+SWIFT_PROTOCOL("_TtP5IMSdk10IMDelegate_")
+@protocol IMDelegate <NSObject>
+- (void)onAuthWithAUid:(NSString * _Nonnull)aUid resolve:(void (^ _Nonnull)(NSString * _Nonnull))resolve;
+@end
+
+typedef SWIFT_ENUM(NSInteger, IMEnvironmentType, closed) {
+  IMEnvironmentTypePro = 1,
+  IMEnvironmentTypeAlpha = 2,
 };
+
+
+SWIFT_CLASS("_TtC5IMSdk5IMSdk")
+@interface IMSdk : NSObject
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC5IMSdk9MMKVUtils")
+@interface MMKVUtils : NSObject
+- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
 
 
 SWIFT_PROTOCOL("_TtP5IMSdk7TMEvent_")
