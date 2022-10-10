@@ -19,7 +19,7 @@ Pod::Spec.new do |spec|
   spec.version      = "0.0.1"
   spec.summary      = "收银台sdk"
   spec.description  = <<-DESC
- 
+  sdk
                    DESC
   spec.homepage     = "https://github.com/TmmTmmIM/IMSdk-iOS"
   spec.license      = "MIT"
@@ -32,6 +32,8 @@ Pod::Spec.new do |spec|
   spec.library   = "z"
   spec.vendored_frameworks = 'PaymentSdk/LKLPaymentSdk.framework'
   spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
+
+  spec.dependency "UMCommon"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
