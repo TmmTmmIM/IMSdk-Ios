@@ -15,7 +15,7 @@ Pod::Spec.new do |spec|
   #  summary should be tweet-length, and the description more in depth.
   #
 
-  spec.name         = "IMSdkiOS"
+  spec.name         = "IMSdk-iOS"
   spec.version      = "0.0.1"
   spec.summary      = "收银台sdk"
   spec.description  = <<-DESC
@@ -27,10 +27,10 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "10.0"
   spec.ios.deployment_target = "10.0"
   spec.source       = { :git => "https://github.com/TmmTmmIM/IMSdk-iOS.git", :tag => spec.version}
-  spec.source_files  = "IMSdkiOS/IMSdkiOS.framework/Headers/*.{h,m}"
+  spec.source_files  = "IMSdk-iOS/IMSdk-iOS.framework/Headers/*.{h,m}"
   spec.frameworks = "CFNetwork", "SystemConfiguration"
   spec.library   = "z"
-  spec.vendored_frameworks = 'IMSdkiOS/IMSdkiOS.framework'
+  spec.vendored_frameworks = 'IMSdk-iOS/IMSdk-iOS.framework'
   spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
 
 
