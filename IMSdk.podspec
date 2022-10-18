@@ -31,8 +31,8 @@ Pod::Spec.new do |spec|
   spec.frameworks = "CFNetwork", "SystemConfiguration"
   spec.library   = "z"
   spec.vendored_frameworks = 'IMSdk-iOS/IMSdk.framework'
-  spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
-  spec.resources = "IMSdk.framework/Headers/SDKAssest.bundle"
+  # spec.pod_target_xcconfig = { 'VALID_ARCHS' => 'x86_64 armv7 arm64' }
+  spec.resources = "IMSdk-iOS/Class/Resources/*"
 
   spec.dependency "WCDB.swift", '~> 1.0.8.2'
   spec.dependency "Alamofire", '~> 4.9.1'
