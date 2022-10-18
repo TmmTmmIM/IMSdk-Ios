@@ -1,0 +1,854 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.7 (swiftlang-5.7.0.127.4 clang-1400.0.29.50)
+// swift-module-flags: -target arm64-apple-ios10.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -module-name IMSdk
+// swift-module-flags-ignorable: -enable-bare-slash-regex
+import AWSCore
+import AWSS3
+import Alamofire
+import AliyunOSSiOS
+import CommonCrypto
+import CoreGraphics
+import Foundation
+import HandyJSON
+@_exported import IMSdk
+import MMKV
+import MobileCoreServices
+import ObjectiveC
+import QuickLook
+import RxSwift
+import SafariServices
+import SnapKit
+import Swift
+import SwiftUI
+import UIKit
+import WCDBSwift
+import _Concurrency
+import _StringProcessing
+import sqlcipher
+@objc @_inheritsConvenienceInitializers @objcMembers public class TmMessage : ObjectiveC.NSObject, HandyJSON.HandyJSON {
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  @objc required override dynamic public init()
+  @objc deinit
+}
+public typealias TMCommonClosure = (_ obj: Any?) -> Swift.Void
+public typealias TMCommonErrorClosure = (_ error: Swift.Error) -> Swift.Void
+public let THUMB_MIN_WIDTH: Swift.Int
+public let THUMB_MIN_HEIGHT: Swift.Int
+extension Swift.String {
+  public var md5: Swift.String {
+    get
+  }
+  public enum MD5EncryptType {
+    case lowercase32
+    case uppercase32
+    case lowercase16
+    case uppercase16
+    public static func == (a: Swift.String.MD5EncryptType, b: Swift.String.MD5EncryptType) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public func DDMD5Encrypt(_ md5Type: Swift.String.MD5EncryptType = .lowercase32) -> Swift.String
+  public func deleteSpecialCharacters() -> Swift.String
+  public func deleteSpecialCharactersWithBeginAndEnd() -> Swift.String
+}
+extension Swift.Dictionary {
+  public var yh_jsonEnCode: Swift.String? {
+    get
+  }
+}
+@objc public protocol IMDelegate : ObjectiveC.NSObjectProtocol {
+  @objc func onAuth(aUid: Swift.String, resolve: @escaping ((_ auth: Swift.String) -> (Swift.Void)))
+}
+public protocol MMJSONDefault {
+  var boolValue: Swift.Bool { get }
+  var intValue: Swift.Int { get }
+  var int8Value: Swift.Int8 { get }
+  var int16Value: Swift.Int16 { get }
+  var int32Value: Swift.Int32 { get }
+  var int64Value: Swift.Int64 { get }
+  var uIntValue: Swift.UInt { get }
+  var uInt8Value: Swift.UInt8 { get }
+  var uInt16Value: Swift.UInt16 { get }
+  var uInt32Value: Swift.UInt32 { get }
+  var uInt64Value: Swift.UInt64 { get }
+  var floatValue: Swift.Float { get }
+  var doubleValue: Swift.Double { get }
+  var stringValue: Swift.String { get }
+}
+public struct CustomDefaultValue : IMSdk.MMJSONDefault {
+  public var boolValue: Swift.Bool {
+    get
+  }
+  public var intValue: Swift.Int {
+    get
+  }
+  public var int8Value: Swift.Int8 {
+    get
+  }
+  public var int16Value: Swift.Int16 {
+    get
+  }
+  public var int32Value: Swift.Int32 {
+    get
+  }
+  public var int64Value: Swift.Int64 {
+    get
+  }
+  public var uIntValue: Swift.UInt {
+    get
+  }
+  public var uInt8Value: Swift.UInt8 {
+    get
+  }
+  public var uInt16Value: Swift.UInt16 {
+    get
+  }
+  public var uInt32Value: Swift.UInt32 {
+    get
+  }
+  public var uInt64Value: Swift.UInt64 {
+    get
+  }
+  public var floatValue: Swift.Float {
+    get
+  }
+  public var doubleValue: Swift.Double {
+    get
+  }
+  public var stringValue: Swift.String {
+    get
+  }
+}
+public enum SwiftyJSONError : Swift.Int, Swift.Error {
+  case unsupportedType
+  case indexOutOfBounds
+  case elementTooDeep
+  case wrongType
+  case notExist
+  case invalidJSON
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension IMSdk.SwiftyJSONError : Foundation.CustomNSError {
+  public static var errorDomain: Swift.String {
+    get
+  }
+  public var errorCode: Swift.Int {
+    get
+  }
+  public var errorUserInfo: [Swift.String : Any] {
+    get
+  }
+}
+public enum Type : Swift.Int {
+  case number
+  case string
+  case bool
+  case array
+  case dictionary
+  case null
+  case unknown
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct JSON {
+  public init(data: Foundation.Data, options opt: Foundation.JSONSerialization.ReadingOptions = []) throws
+  public init(_ object: Any)
+  public init(parseJSON jsonString: Swift.String)
+  public mutating func merge(with other: IMSdk.JSON) throws
+  public func merged(with other: IMSdk.JSON) throws -> IMSdk.JSON
+  public var type: IMSdk.`Type` {
+    get
+  }
+  public var error: IMSdk.SwiftyJSONError? {
+    get
+  }
+  public var object: Any {
+    get
+    set
+  }
+  @available(*, unavailable, renamed: "null")
+  public static var nullJSON: IMSdk.JSON {
+    get
+  }
+  public static var null: IMSdk.JSON {
+    get
+  }
+}
+public enum Index<T> : Swift.Comparable {
+  case array(Swift.Int)
+  case dictionary(Swift.DictionaryIndex<Swift.String, T>)
+  case null
+  public static func == (lhs: IMSdk.Index<T>, rhs: IMSdk.Index<T>) -> Swift.Bool
+  public static func < (lhs: IMSdk.Index<T>, rhs: IMSdk.Index<T>) -> Swift.Bool
+}
+public typealias JSONIndex = IMSdk.Index<IMSdk.JSON>
+public typealias JSONRawIndex = IMSdk.Index<Any>
+extension IMSdk.JSON : Swift.Collection {
+  public typealias Index = IMSdk.JSONRawIndex
+  public var startIndex: IMSdk.JSON.Index {
+    get
+  }
+  public var endIndex: IMSdk.JSON.Index {
+    get
+  }
+  public func index(after i: IMSdk.JSON.Index) -> IMSdk.JSON.Index
+  public subscript(position: IMSdk.JSON.Index) -> (Swift.String, IMSdk.JSON) {
+    get
+  }
+  public typealias Element = (Swift.String, IMSdk.JSON)
+  public typealias Indices = Swift.DefaultIndices<IMSdk.JSON>
+  public typealias Iterator = Swift.IndexingIterator<IMSdk.JSON>
+  public typealias SubSequence = Swift.Slice<IMSdk.JSON>
+}
+public enum JSONKey {
+  case index(Swift.Int)
+  case key(Swift.String)
+}
+public protocol JSONSubscriptType {
+  var jsonKey: IMSdk.JSONKey { get }
+}
+extension Swift.Int : IMSdk.JSONSubscriptType {
+  public var jsonKey: IMSdk.JSONKey {
+    get
+  }
+}
+extension Swift.String : IMSdk.JSONSubscriptType {
+  public var jsonKey: IMSdk.JSONKey {
+    get
+  }
+}
+extension IMSdk.JSON {
+  public subscript(path: [IMSdk.JSONSubscriptType]) -> IMSdk.JSON {
+    get
+    set
+  }
+  public subscript(path: IMSdk.JSONSubscriptType...) -> IMSdk.JSON {
+    get
+    set
+  }
+}
+extension IMSdk.JSON : Swift.ExpressibleByStringLiteral {
+  public init(stringLiteral value: Swift.StringLiteralType)
+  public init(extendedGraphemeClusterLiteral value: Swift.StringLiteralType)
+  public init(unicodeScalarLiteral value: Swift.StringLiteralType)
+  public typealias ExtendedGraphemeClusterLiteralType = Swift.StringLiteralType
+  public typealias StringLiteralType = Swift.StringLiteralType
+  public typealias UnicodeScalarLiteralType = Swift.StringLiteralType
+}
+extension IMSdk.JSON : Swift.ExpressibleByIntegerLiteral {
+  public init(integerLiteral value: Swift.IntegerLiteralType)
+  public typealias IntegerLiteralType = Swift.IntegerLiteralType
+}
+extension IMSdk.JSON : Swift.ExpressibleByBooleanLiteral {
+  public init(booleanLiteral value: Swift.BooleanLiteralType)
+  public typealias BooleanLiteralType = Swift.BooleanLiteralType
+}
+extension IMSdk.JSON : Swift.ExpressibleByFloatLiteral {
+  public init(floatLiteral value: Swift.FloatLiteralType)
+  public typealias FloatLiteralType = Swift.FloatLiteralType
+}
+extension IMSdk.JSON : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Any)...)
+  public typealias Key = Swift.String
+  public typealias Value = Any
+}
+extension IMSdk.JSON : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: Any...)
+  public typealias ArrayLiteralElement = Any
+}
+extension IMSdk.JSON : Swift.RawRepresentable {
+  public init?(rawValue: Any)
+  public var rawValue: Any {
+    get
+  }
+  public func rawData(options opt: Foundation.JSONSerialization.WritingOptions = JSONSerialization.WritingOptions(rawValue: 0)) throws -> Foundation.Data
+  public func rawString(_ encoding: Swift.String.Encoding = .utf8, options opt: Foundation.JSONSerialization.WritingOptions = .prettyPrinted) -> Swift.String?
+  public func rawString(_ options: [IMSdk.writingOptionsKeys : Any]) -> Swift.String?
+  public typealias RawValue = Any
+}
+extension IMSdk.JSON : Swift.CustomStringConvertible, Swift.CustomDebugStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+  public var debugDescription: Swift.String {
+    get
+  }
+}
+extension IMSdk.JSON {
+  public var array: [IMSdk.JSON]? {
+    get
+  }
+  public var arrayValue: [IMSdk.JSON] {
+    get
+  }
+  public var arrayObject: [Any]? {
+    get
+    set
+  }
+}
+extension IMSdk.JSON {
+  public var dictionary: [Swift.String : IMSdk.JSON]? {
+    get
+  }
+  public var dictionaryValue: [Swift.String : IMSdk.JSON] {
+    get
+  }
+  public var dictionaryObject: [Swift.String : Any]? {
+    get
+    set
+  }
+}
+extension IMSdk.JSON {
+  public var bool: Swift.Bool? {
+    get
+    set
+  }
+  public var boolValue: Swift.Bool {
+    get
+    set
+  }
+}
+extension IMSdk.JSON {
+  public var string: Swift.String? {
+    get
+    set
+  }
+  public var stringValue: Swift.String {
+    get
+    set
+  }
+}
+extension IMSdk.JSON {
+  public var number: Foundation.NSNumber? {
+    get
+    set
+  }
+  public var numberValue: Foundation.NSNumber {
+    get
+    set
+  }
+}
+extension IMSdk.JSON {
+  public var null: Foundation.NSNull? {
+    get
+    set
+  }
+  public func exists() -> Swift.Bool
+}
+extension IMSdk.JSON {
+  public var url: Foundation.URL? {
+    get
+    set
+  }
+}
+extension IMSdk.JSON {
+  public var double: Swift.Double? {
+    get
+    set
+  }
+  public var doubleValue: Swift.Double {
+    get
+    set
+  }
+  public var float: Swift.Float? {
+    get
+    set
+  }
+  public var floatValue: Swift.Float {
+    get
+    set
+  }
+  public var int: Swift.Int? {
+    get
+    set
+  }
+  public var intValue: Swift.Int {
+    get
+    set
+  }
+  public var uInt: Swift.UInt? {
+    get
+    set
+  }
+  public var uIntValue: Swift.UInt {
+    get
+    set
+  }
+  public var int8: Swift.Int8? {
+    get
+    set
+  }
+  public var int8Value: Swift.Int8 {
+    get
+    set
+  }
+  public var uInt8: Swift.UInt8? {
+    get
+    set
+  }
+  public var uInt8Value: Swift.UInt8 {
+    get
+    set
+  }
+  public var int16: Swift.Int16? {
+    get
+    set
+  }
+  public var int16Value: Swift.Int16 {
+    get
+    set
+  }
+  public var uInt16: Swift.UInt16? {
+    get
+    set
+  }
+  public var uInt16Value: Swift.UInt16 {
+    get
+    set
+  }
+  public var int32: Swift.Int32? {
+    get
+    set
+  }
+  public var int32Value: Swift.Int32 {
+    get
+    set
+  }
+  public var uInt32: Swift.UInt32? {
+    get
+    set
+  }
+  public var uInt32Value: Swift.UInt32 {
+    get
+    set
+  }
+  public var int64: Swift.Int64? {
+    get
+    set
+  }
+  public var int64Value: Swift.Int64 {
+    get
+    set
+  }
+  public var uInt64: Swift.UInt64? {
+    get
+    set
+  }
+  public var uInt64Value: Swift.UInt64 {
+    get
+    set
+  }
+}
+extension IMSdk.JSON : Swift.Comparable {
+}
+public func == (lhs: IMSdk.JSON, rhs: IMSdk.JSON) -> Swift.Bool
+public func <= (lhs: IMSdk.JSON, rhs: IMSdk.JSON) -> Swift.Bool
+public func >= (lhs: IMSdk.JSON, rhs: IMSdk.JSON) -> Swift.Bool
+public func > (lhs: IMSdk.JSON, rhs: IMSdk.JSON) -> Swift.Bool
+public func < (lhs: IMSdk.JSON, rhs: IMSdk.JSON) -> Swift.Bool
+public enum writingOptionsKeys {
+  case jsonSerialization
+  case castNilToNSNull
+  case maxObjextDepth
+  case encoding
+  public static func == (a: IMSdk.writingOptionsKeys, b: IMSdk.writingOptionsKeys) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension IMSdk.JSON : Swift.Codable {
+  public init(from decoder: Swift.Decoder) throws
+  public func encode(to encoder: Swift.Encoder) throws
+}
+public enum TMNetError : Swift.Int {
+  case NO_NETWORKING
+  case NETWORKING_TIME_OUT
+  case TOKEN_ERROR
+  case COMMON_ERROR
+  case RELATION_DELETE_ME
+  case RELATION_DELETE_OTHER
+  case RELATION_DELETE_BOTH
+  case GROUP_NOT_IN
+  case MOMENT_COMMENT_ERROR_WITH_DELETE
+  case SERVER_DB_ERROR
+  case SERVER_COMMON_ERROR
+  case RELATION_BLOCK_BY_ME
+  case RELATION_BLOCK_BY_USER
+  case RELATION_BLOCK_EACH_OTHER
+  case DELETE_ACCOUNT
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+@_inheritsConvenienceInitializers @objc public class YHGenerated : ObjectiveC.NSObject {
+  @objc public static func openIphoneSettings()
+  @objc public static func openAppStore(with appID: Swift.String)
+  @objc public static func openAppStoreReview(with appID: Swift.String)
+  @objc public static func makeCall(with tel: Swift.String)
+  @objc public static func openSafari(with url: Swift.String, autoCorrect: Swift.Bool = true)
+  @objc public static func getLocalJSONFile(file fileName: Swift.String) -> Foundation.Data?
+  @objc public static func getLocalPlistFile(file fileName: Swift.String) -> Foundation.Data?
+  @objc override dynamic public init()
+  @objc deinit
+}
+extension IMSdk.YHGenerated {
+  public enum bundleType : Swift.String {
+    case appVersion
+    case buildID
+    case bundleID
+    case appName
+    case statusBarStyle
+    public init?(rawValue: Swift.String)
+    public typealias RawValue = Swift.String
+    public var rawValue: Swift.String {
+      get
+    }
+  }
+  public static func getBundleInfo(with type: IMSdk.YHGenerated.bundleType) -> Swift.String
+}
+extension IMSdk.YHGenerated {
+  @objc public static func fileSize(length: Swift.Int) -> Swift.String
+}
+@objc @_inheritsConvenienceInitializers open class MMKVUtils : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class ConversationView : UIKit.UIView, UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc @_Concurrency.MainActor(unsafe) public func setDelegate(delegate: IMSdk.ConversationDelegate)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, viewForFooterInSection section: Swift.Int) -> UIKit.UIView?
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class TMImageBrowserView : UIKit.UIView {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc deinit
+}
+extension IMSdk.TMImageBrowserView : UIKit.UICollectionViewDataSource, UIKit.UICollectionViewDelegate, UIKit.UICollectionViewDelegateFlowLayout {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, numberOfItemsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, layout collectionViewLayout: UIKit.UICollectionViewLayout, sizeForItemAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGSize
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func collectionView(_ collectionView: UIKit.UICollectionView, cellForItemAt indexPath: Foundation.IndexPath) -> UIKit.UICollectionViewCell
+}
+@_hasMissingDesignatedInitializers @objc public class IMSdk : ObjectiveC.NSObject {
+  public static func getInstance(ak: Swift.String, env: IMSdk.IMEnvironmentType) -> IMSdk.IMSdk
+  public func initUser(aUid: Swift.String)
+  public func setIMDelegate(delegate: IMSdk.IMDelegate)
+  public func createChat(aChatId: Swift.String, chatName: Swift.String, auids: [Swift.String], success: (() -> ())?, fail: ((Swift.String) -> ())?)
+  public func sendTextMessage(aChatId: Swift.String, aMid: Swift.String, content: Swift.String)
+  public func sendImageMessage(aChatId: Swift.String, aMid: Swift.String, data: Foundation.Data, format: Swift.String, isOrigin: Swift.Bool = true)
+  public func sendAttachmentMessage(aChatId: Swift.String, aMid: Swift.String, data: Foundation.Data, fileName: Swift.String, format: Swift.String)
+  public func creatConversationView() -> IMSdk.ConversationView
+  public func creatChatView(aChatId: Swift.String) -> IMSdk.ChatView
+  public func creatImageBrowserView(chatId: Swift.String, currentIndex: Swift.Int) -> IMSdk.TMImageBrowserView
+  public func getConversions() -> [IMSdk.TmConversationInfo]
+  public func getMassages(aChatId: Swift.String) -> [IMSdk.TmMessage]
+  public func startSocket()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class Thread : Foundation.Thread {
+  public func postBack(_ task: @escaping () -> Swift.Void)
+  public func setRunner(_ main: @escaping () -> Swift.Void) -> IMSdk.Thread
+  @objc override dynamic public func main()
+  @objc deinit
+}
+extension Swift.String {
+  public var yh_jsonDecode: Any? {
+    get
+  }
+  public static func random(_ count: Swift.Int) -> Swift.String
+  public static func randomNumString(_ count: Swift.Int) -> Swift.String
+  public static func convertValueString(format: Swift.String, values: [Swift.String]) -> Swift.String
+}
+public protocol MMCodable : Swift.Decodable, Swift.Encodable {
+  init()
+  mutating func mapping(_ json: IMSdk.JSON)
+}
+extension IMSdk.MMCodable {
+  public mutating func mapping(_ json: IMSdk.JSON)
+}
+@_hasMissingDesignatedInitializers public class ApiNoTokenService {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class TmUserManager : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+public let THUMB_AVATAR_WIDTH: Swift.Int
+public let THUMB_AVATAR_HEIGHT: Swift.Int
+public struct FileProgressDao {
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class TmFileProgressManager : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class TMNetworkingError : Swift.Error {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @objcMembers @_Concurrency.MainActor(unsafe) public class ChatView : UIKit.UIView, UIKit.UITableViewDataSource, UIKit.UITableViewDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @objc @_Concurrency.MainActor(unsafe) public func setDelegate(delegate: IMSdk.ChatViewDelegate)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, numberOfRowsInSection section: Swift.Int) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, cellForRowAt indexPath: Foundation.IndexPath) -> UIKit.UITableViewCell
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, heightForRowAt indexPath: Foundation.IndexPath) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, didSelectRowAt indexPath: Foundation.IndexPath)
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, heightForHeaderInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, heightForFooterInSection section: Swift.Int) -> CoreFoundation.CGFloat
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, viewForHeaderInSection section: Swift.Int) -> UIKit.UIView?
+  @_Concurrency.MainActor(unsafe) @objc public func tableView(_ tableView: UIKit.UITableView, viewForFooterInSection section: Swift.Int) -> UIKit.UIView?
+  @objc deinit
+}
+public typealias FileTransferSuccess = (_ path: Swift.String) -> Swift.Void
+public typealias FileTransferFailed = (_ error: Swift.Error) -> Swift.Void
+public typealias FileTransferProgress = (_ id: Swift.String, _ progress: Swift.Int) -> Swift.Void
+open class MMJSONDecoder {
+  public enum NotFoundKeyOrValueDecodingStrategy {
+    case MMDefaultValue
+    case customDefaultValue(IMSdk.MMJSONDefault)
+  }
+  public enum DateDecodingStrategy {
+    case deferredToDate
+    case secondsSince1970
+    case millisecondsSince1970
+    @available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
+    case iso8601
+    case formatted(Foundation.DateFormatter)
+    case custom((_ decoder: Swift.Decoder) throws -> Foundation.Date)
+  }
+  public enum DataDecodingStrategy {
+    case deferredToData
+    case base64
+    case custom((_ decoder: Swift.Decoder) throws -> Foundation.Data)
+  }
+  public enum NonConformingFloatDecodingStrategy {
+    case `throw`
+    case convertFromString(positiveInfinity: Swift.String, negativeInfinity: Swift.String, nan: Swift.String)
+  }
+  public enum KeyDecodingStrategy {
+    case useDefaultKeys
+    case convertFromSnakeCase
+    case custom((_ codingPath: [Swift.CodingKey]) -> Swift.CodingKey)
+  }
+  open var dateDecodingStrategy: IMSdk.MMJSONDecoder.DateDecodingStrategy
+  open var dataDecodingStrategy: IMSdk.MMJSONDecoder.DataDecodingStrategy
+  open var nonConformingFloatDecodingStrategy: IMSdk.MMJSONDecoder.NonConformingFloatDecodingStrategy
+  open var keyDecodingStrategy: IMSdk.MMJSONDecoder.KeyDecodingStrategy
+  open var userInfo: [Swift.CodingUserInfoKey : Any]
+  open var notFoundKeyOrValueDecodingStrategy: IMSdk.MMJSONDecoder.NotFoundKeyOrValueDecodingStrategy
+  public init()
+  open func decode<T>(_ type: T.Type, from data: Foundation.Data) throws -> T where T : Swift.Decodable
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers public class Async : ObjectiveC.NSObject {
+  @objc override dynamic public init()
+  public func run(_ runner: @escaping () -> Swift.Void)
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class TMNetCore {
+  public static let shared: IMSdk.TMNetCore
+  public func apiCore(net: IMSdk.TMNet, path: Swift.String, method: Alamofire.HTTPMethod = .post, parameters: [Swift.String : Any]? = nil) -> IMSdk.Promise<Swift.String>
+  public func apiNoTokenCore(net: IMSdk.TMNet, path: Swift.String, method: Alamofire.HTTPMethod = .post, parameters: [Swift.String : Any]?) -> IMSdk.Promise<Swift.String>
+  @objc deinit
+}
+@objc public protocol TMEvent : ObjectiveC.NSObjectProtocol {
+  @objc func getData() -> [Swift.String]
+  @objc func getName() -> Swift.String
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class TmConversationInfo : ObjectiveC.NSObject, HandyJSON.HandyJSON {
+  @objc override dynamic public func isEqual(_ object: Any?) -> Swift.Bool
+  @objc override dynamic public var hash: Swift.Int {
+    @objc get
+  }
+  @objc required override dynamic public init()
+  @objc deinit
+}
+public let IS_MUTE: Swift.Int
+public let IS_NOT_MUTE: Swift.Int
+public let IS_TOP: Swift.Int
+public let IS_NOT_TOP: Swift.Int
+@_hasMissingDesignatedInitializers public class NetFactory {
+  @objc deinit
+}
+@_hasMissingDesignatedInitializers public class AwsService {
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers @_Concurrency.MainActor(unsafe) public class FilePreView : UIKit.UIView, UIKit.UIDocumentInteractionControllerDelegate {
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public init(frame: CoreFoundation.CGRect)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+extension IMSdk.FilePreView : QuickLook.QLPreviewControllerDelegate, QuickLook.QLPreviewControllerDataSource {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func numberOfPreviewItems(in controller: QuickLook.QLPreviewController) -> Swift.Int
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func previewController(_ controller: QuickLook.QLPreviewController, previewItemAt index: Swift.Int) -> QuickLook.QLPreviewItem
+}
+@objc public protocol ConversationDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func onItemClick(aChatId: Swift.String)
+}
+@objc public enum IMEnvironmentType : Swift.Int {
+  case pro = 1
+  case alpha = 2
+  public init?(rawValue: Swift.Int)
+  public typealias RawValue = Swift.Int
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+public struct TmFileTransferStatus {
+}
+@objc @_inheritsConvenienceInitializers @objcMembers public class TMPathManager : ObjectiveC.NSObject {
+  @objc public static let shared: IMSdk.TMPathManager
+  @objc public func isFileExists(filePath: Swift.String) -> Swift.Bool
+  @objc public func getHomeDirectoryExists() -> Swift.String
+  @objc public func fileCacheDirectory(filePath: Swift.String) -> Swift.String
+  @objc public func picSaveHomeDirectoryWithName(image: UIKit.UIImage?, path: Swift.String) -> Swift.String
+  @objc public func picSaveHomeDirectoryWithName(image: UIKit.UIImage?, name: Swift.String) -> Swift.String
+  @objc public func saveFile(imagePath: Swift.String?, filePath: Swift.String)
+  @objc public func saveFile_image(image: UIKit.UIImage?, filePath: Swift.String)
+  @objc public func getFile(filePath: Swift.String) -> UIKit.UIImage?
+  @objc public func resize(newSize: CoreFoundation.CGSize, oimage: UIKit.UIImage, suffix: Swift.String) -> UIKit.UIImage?
+  @objc public func resize(newSize: CoreFoundation.CGSize, oimage: UIKit.UIImage, targetPath: Swift.String, suffix: Swift.String) -> UIKit.UIImage?
+  @objc public func getOssDir() -> Swift.String
+  @objc public func thumObjectIdTransferOriginalObjectId(thumObjectId: Swift.String) -> Swift.String
+  @objc public func getFullFilePath(objectId: Swift.String) -> Swift.String
+  @objc override dynamic public init()
+  @objc deinit
+}
+public let IMServerName: Swift.String
+@objc @_hasMissingDesignatedInitializers public class TMNet : ObjectiveC.NSObject {
+  @objc deinit
+}
+public struct TmMessageType {
+}
+@objc public protocol ChatViewDelegate : ObjectiveC.NSObjectProtocol {
+  @objc optional func onFileMessageClick(amid: Swift.String, preView: IMSdk.FilePreView)
+}
+public struct TmMessageStatus {
+}
+@_hasMissingDesignatedInitializers public class ApiBaseService {
+  @objc deinit
+}
+public class Promise<Value> {
+  public init(_ task: (@escaping (Value) -> Swift.Void, @escaping (Swift.Error) -> Swift.Void) throws -> Swift.Void)
+  public static func reject(_ err: Swift.Error) -> IMSdk.Promise<Value>
+  public static func resolve(_ value: Value) -> IMSdk.Promise<Value>
+  public static func resolve() -> IMSdk.Promise<Swift.Void>
+  @discardableResult
+  public func then<Next>(_ task: @escaping (Value) throws -> IMSdk.Promise<Next>) -> IMSdk.Promise<Next>
+  @discardableResult
+  public func then<Next>(_ task: @escaping (Value, @escaping (Next) -> Swift.Void, @escaping (Swift.Error) -> Swift.Void) throws -> Swift.Void) -> IMSdk.Promise<Next>
+  @available(*, deprecated)
+  @discardableResult
+  public func thenByThread<Next>(_ task: @escaping (Value, @escaping (Next) -> Swift.Void, @escaping (Swift.Error) -> Swift.Void) throws -> Swift.Void) -> IMSdk.Promise<Next>
+  @discardableResult
+  public func thenByThread<Next>(_ task: @escaping (Value) throws -> Next) -> IMSdk.Promise<Next>
+  @discardableResult
+  public func `catch`(_ task: @escaping (Swift.Error) throws -> IMSdk.Promise<Value>) -> IMSdk.Promise<Value>
+  @discardableResult
+  public func finally(_ task: @escaping () throws -> Swift.Void) -> IMSdk.Promise<Value>
+  public static func race(_ promises: [IMSdk.Promise<Value>]) -> IMSdk.Promise<Value>
+  public static func all(_ promises: [IMSdk.Promise<Value>]) -> IMSdk.Promise<[Value]>
+  @objc deinit
+}
+extension IMSdk.Promise {
+  public static func all<T2>(_ promise1: IMSdk.Promise<Value>, _ promise2: IMSdk.Promise<T2>) -> IMSdk.Promise<(Value, T2)>
+  public static func all<T2, T3>(_ promise1: IMSdk.Promise<Value>, _ promise2: IMSdk.Promise<T2>, _ promise3: IMSdk.Promise<T3>) -> IMSdk.Promise<(Value, T2, T3)>
+  public static func all<T2, T3, T4>(_ promise1: IMSdk.Promise<Value>, _ promise2: IMSdk.Promise<T2>, _ promise3: IMSdk.Promise<T3>, _ promise4: IMSdk.Promise<T4>) -> IMSdk.Promise<(Value, T2, T3, T4)>
+  public static func all<T2, T3, T4, T5>(_ promise1: IMSdk.Promise<Value>, _ promise2: IMSdk.Promise<T2>, _ promise3: IMSdk.Promise<T3>, _ promise4: IMSdk.Promise<T4>, _ promise5: IMSdk.Promise<T5>) -> IMSdk.Promise<(Value, T2, T3, T4, T5)>
+  public static func all<T2, T3, T4, T5, T6>(_ promise1: IMSdk.Promise<Value>, _ promise2: IMSdk.Promise<T2>, _ promise3: IMSdk.Promise<T3>, _ promise4: IMSdk.Promise<T4>, _ promise5: IMSdk.Promise<T5>, _ promise6: IMSdk.Promise<T6>) -> IMSdk.Promise<(Value, T2, T3, T4, T5, T6)>
+}
+open class MMJSONEncoder {
+  public struct OutputFormatting : Swift.OptionSet {
+    public let rawValue: Swift.UInt
+    public init(rawValue: Swift.UInt)
+    public static let prettyPrinted: IMSdk.MMJSONEncoder.OutputFormatting
+    @available(macOS 10.13, iOS 11.0, watchOS 4.0, tvOS 11.0, *)
+    public static let sortedKeys: IMSdk.MMJSONEncoder.OutputFormatting
+    public typealias ArrayLiteralElement = IMSdk.MMJSONEncoder.OutputFormatting
+    public typealias Element = IMSdk.MMJSONEncoder.OutputFormatting
+    public typealias RawValue = Swift.UInt
+  }
+  public enum DateEncodingStrategy {
+    case deferredToDate
+    case secondsSince1970
+    case millisecondsSince1970
+    @available(macOS 10.12, iOS 10.0, watchOS 3.0, tvOS 10.0, *)
+    case iso8601
+    case formatted(Foundation.DateFormatter)
+    case custom((Foundation.Date, Swift.Encoder) throws -> Swift.Void)
+  }
+  public enum DataEncodingStrategy {
+    case deferredToData
+    case base64
+    case custom((Foundation.Data, Swift.Encoder) throws -> Swift.Void)
+  }
+  public enum NonConformingFloatEncodingStrategy {
+    case `throw`
+    case convertToString(positiveInfinity: Swift.String, negativeInfinity: Swift.String, nan: Swift.String)
+  }
+  public enum KeyEncodingStrategy {
+    case useDefaultKeys
+    case convertToSnakeCase
+    case custom((_ codingPath: [Swift.CodingKey]) -> Swift.CodingKey)
+  }
+  open var outputFormatting: IMSdk.MMJSONEncoder.OutputFormatting
+  open var dateEncodingStrategy: IMSdk.MMJSONEncoder.DateEncodingStrategy
+  open var dataEncodingStrategy: IMSdk.MMJSONEncoder.DataEncodingStrategy
+  open var nonConformingFloatEncodingStrategy: IMSdk.MMJSONEncoder.NonConformingFloatEncodingStrategy
+  open var keyEncodingStrategy: IMSdk.MMJSONEncoder.KeyEncodingStrategy
+  open var userInfo: [Swift.CodingUserInfoKey : Any]
+  public init()
+  open func encode<T>(_ value: T) throws -> Foundation.Data where T : Swift.Encodable
+  @objc deinit
+}
+public struct TmFilePrefixType {
+}
+@_hasMissingDesignatedInitializers public class TmMessageDirection {
+  public static func direction(sender: Swift.String?) -> Swift.Int
+  @objc deinit
+}
+extension Swift.Dictionary {
+  public var dicJsonEnCode: Swift.String? {
+    get
+  }
+}
+extension Swift.String.MD5EncryptType : Swift.Equatable {}
+extension Swift.String.MD5EncryptType : Swift.Hashable {}
+extension IMSdk.SwiftyJSONError : Swift.Equatable {}
+extension IMSdk.SwiftyJSONError : Swift.Hashable {}
+extension IMSdk.SwiftyJSONError : Swift.RawRepresentable {}
+extension IMSdk.`Type` : Swift.Equatable {}
+extension IMSdk.`Type` : Swift.Hashable {}
+extension IMSdk.`Type` : Swift.RawRepresentable {}
+extension IMSdk.writingOptionsKeys : Swift.Equatable {}
+extension IMSdk.writingOptionsKeys : Swift.Hashable {}
+extension IMSdk.TMNetError : Swift.Equatable {}
+extension IMSdk.TMNetError : Swift.Hashable {}
+extension IMSdk.TMNetError : Swift.RawRepresentable {}
+extension IMSdk.YHGenerated.bundleType : Swift.Equatable {}
+extension IMSdk.YHGenerated.bundleType : Swift.Hashable {}
+extension IMSdk.YHGenerated.bundleType : Swift.RawRepresentable {}
+extension IMSdk.IMEnvironmentType : Swift.Equatable {}
+extension IMSdk.IMEnvironmentType : Swift.Hashable {}
+extension IMSdk.IMEnvironmentType : Swift.RawRepresentable {}

@@ -338,7 +338,7 @@ SWIFT_PROTOCOL("_TtP5IMSdk10IMDelegate_")
 - (void)onAuthWithAUid:(NSString * _Nonnull)aUid resolve:(void (^ _Nonnull)(NSString * _Nonnull))resolve;
 @end
 
-typedef SWIFT_ENUM(NSInteger, IMEnvironmentType, closed) {
+typedef SWIFT_ENUM(NSInteger, IMEnvironmentType, open) {
   IMEnvironmentTypePro = 1,
   IMEnvironmentTypeAlpha = 2,
 };
