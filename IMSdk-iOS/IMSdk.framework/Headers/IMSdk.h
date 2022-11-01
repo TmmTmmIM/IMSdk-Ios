@@ -25,16 +25,25 @@ FOUNDATION_EXPORT const unsigned char SDKVersionString[];
 #import <IMSdk/TMAnimatedImageView.h>
 #import <IMSdk/UIImageView+TMWebImage.h>
 
+#import <IMSdk/TMFaceAttachment.h>
+#import <IMSdk/TMTextLayout.h>
+#import <IMSdk/NSAttributedString+TMText.h>
+#import <IMSdk/TMDefine.h>
+#import <IMSdk/TMImageTempModel.h>
+#import <IMSdk/TMCallHeadImageView.h>
+#import <IMSdk/TMChatDetailViewController.h>
+#import <IMSdk/TMMessageModel.h>
+#import <IMSdk/MTimeManager.h>
+#import <IMSdk/TMChatDetailViewModel.h>
+#import <IMSdk/TMHYBrowserViewController.h>
+#import <IMSdk/UIView+KKImageBrowser.h>
+#import <IMSdk/TMChatListManager.h>
+#import <IMSdk/TMChannelListViewController.h>
+#import <IMSdk/TMChannelListViewModel.h>
+#import <IMSdk/ChatBaseCell.h>
+#import <IMSdk/TMNewChatTextManager.h>
+#import <IMSdk/TMChatCellConst.h>
+#import <IMSdk/TMLibsManager.h>
 
-//#import <IMSdk/TMImage.h>
-//#import <IMSdk/TMWebImage.h>
-//#import <IMSdk/TMMemoryCache.h>
-//#import <IMSdk/TMImageCoder.h>
-//#import <IMSdk/TMWebImageOperation.h>
-//#import <IMSdk/MKAnnotationView+TMWebImage.h>
-//#import <IMSdk/TMCache.h>
-//#import <IMSdk/TMDiskCache.h>
-//#import <IMSdk/TMFrameImage.h>
-//#import <IMSdk/TMWebImageManager.h>
-//#import <IMSdk/TMImageCache.h>
-//#import <IMSdk/UIImage+TMWebImage.h>
+
+

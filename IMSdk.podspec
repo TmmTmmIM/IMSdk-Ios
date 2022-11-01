@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "IMSdk"
-  spec.version      = "0.0.2"
+  spec.version      = "0.0.3"
   spec.summary      = "imsdk"
   spec.description  = <<-DESC
   imsdk
@@ -42,6 +42,9 @@ Pod::Spec.new do |spec|
   spec.dependency "SnapKit", '~> 4.2.0'
   spec.dependency "AliyunOSSiOS", '~> 2.10.15'
   spec.dependency "AWSS3", '~> 2.25.0'
+  spec.dependency "Masonry", '~> 1.1.0'
+  spec.dependency "CocoaLumberjack/Swift", '~> 3.7.2'
+  spec.dependency "Localize-Swift", '~> 3.2.0'
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
