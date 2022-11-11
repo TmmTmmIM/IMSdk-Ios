@@ -18,7 +18,7 @@ FOUNDATION_EXPORT const unsigned char SDKVersionString[];
 #import <IMSdk/SRWebSocket.h>
 #import <IMSdk/TMMCompressPicManager.h>
 #import <IMSdk/YHPhotoManager.h>
-#import <IMSdk/DACircularProgressView.h>
+//#import <IMSdk/DACircularProgressView.h>
 #import <IMSdk/DALabeledCircularProgressView.h>
 #import <IMSdk/GYCircleProgressView.h>
 
@@ -39,10 +39,10 @@ FOUNDATION_EXPORT const unsigned char SDKVersionString[];
 #import <IMSdk/UIView+KKImageBrowser.h>
 #import <IMSdk/TMChatListManager.h>
 #import <IMSdk/TMChannelListViewController.h>
-#import <IMSdk/TMChannelListViewModel.h>
+//#import <IMSdk/TMChannelListViewModel.h>
 #import <IMSdk/ChatBaseCell.h>
 #import <IMSdk/TMNewChatTextManager.h>
-#import <IMSdk/TMChatCellConst.h>
+//#import <IMSdk/TMChatCellConst.h>
 #import <IMSdk/TMLibsManager.h>
 
 
