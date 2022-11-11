@@ -45,7 +45,11 @@ Pod::Spec.new do |spec|
   spec.dependency "Masonry", '~> 1.1.0'
   spec.dependency "CocoaLumberjack/Swift", '~> 3.7.2'
   spec.dependency "Localize-Swift", '~> 3.2.0'
-
+  spec.dependency "MJRefresh", '~> 3.7.5'
+  spec.dependency "RxGesture", '~> 4.0.2'
+  spec.dependency "Texture", '~> 3.0.0'
+  spec.dependency "NSObject+Rx", '~> 5.2.2'
+  spec.dependency "R.swift", '~> 5.4.0'
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
