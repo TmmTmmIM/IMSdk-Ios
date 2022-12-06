@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "IMSdk"
-  spec.version      = "0.0.4"
+  spec.version      = "0.0.6"
   spec.summary      = "imsdk"
   spec.description  = <<-DESC
   imsdk
@@ -49,7 +49,7 @@ Pod::Spec.new do |spec|
   spec.dependency "RxGesture", '~> 4.0.2'
   spec.dependency "Texture", '~> 3.0.0'
   spec.dependency "NSObject+Rx", '~> 5.2.2'
-  spec.dependency "R.swift", '~> 5.4.0'
+  spec.dependency "R.swift", '~> 6.1.0'
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
